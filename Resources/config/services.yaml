@@ -39,10 +39,10 @@ services:
   Translation\Bundle\Catalogue\CatalogueCounter:
     public: true
 
-  Translation\Bundle\Twig\TranslationExtension:
-    arguments: ['@translator', '%kernel.debug%']
-    tags:
-        - { name: twig.extension }
+  #Translation\Bundle\Twig\TranslationExtension:
+  #  arguments: ['@translator', '%kernel.debug%']
+  #  tags:
+  #      - { name: twig.extension }
 
   # To remove in next major release
   php_translation.catalogue_fetcher:
@@ -80,6 +80,6 @@ services:
     parent: Translation\Bundle\Catalogue\CatalogueCounter
     public: true
     deprecated: 'The "%service_id%" service is deprecated. You should stop using it, as it will be removed in the future.'
-  php_translation.twig_extension:
-    parent: Translation\Bundle\Twig\TranslationExtension
-    deprecated: 'The "%service_id%" service is deprecated. You should stop using it, as it will be removed in the future.'
+  #php_translation.twig_extension:
+  #  parent: Translation\Bundle\Twig\TranslationExtension
+  #  deprecated: 'The "%service_id%" service is deprecated. You should stop using it, as it will be removed in the future.'
