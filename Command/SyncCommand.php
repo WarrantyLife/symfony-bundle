@@ -79,7 +79,11 @@ class SyncCommand extends Command
         foreach ($raw as $string) {
             // Assert $string looks like "foo:bar"
             list($key, $value) = \explode(':', $string, 2);
-            $config[$key][] = $value;
+            // local WL change. Why is this creating the value as an array?
+            // this breaks everything that looks at the options array 
+            // $config[$key][] = $value;
+            // change to key:val
+            $config[$key] = $value;
         }
 
         return $config;
