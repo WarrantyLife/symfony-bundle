@@ -80,7 +80,7 @@ class SyncCommand extends Command
             // Assert $string looks like "foo:bar"
             list($key, $value) = \explode(':', $string, 2);
             // local WL change. Why is this creating the value as an array?
-            // this breaks everything that looks at the options array 
+            // this breaks everything that looks at the options array
             // $config[$key][] = $value;
             // change to key:val
             $config[$key] = $value;

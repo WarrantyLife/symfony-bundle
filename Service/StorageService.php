@@ -119,6 +119,9 @@ final class StorageService implements Storage
     {
         $catalogues = $this->catalogueFetcher->getCatalogues($this->config);
         foreach ($catalogues as $catalogue) {
+            if(isset($importOptions['locale']) && $catalogue->getLocale() != $importOptions['locale']) {
+                continue;
+            }
             foreach ($this->remoteStorages as $storage) {
                 if ($storage instanceof TransferableStorage) {
                     $storage->import($catalogue, $importOptions);
